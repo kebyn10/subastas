@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <title>Bienvenido a mi Formulario</title>
+</head>
+<body>
+<div class="container-form sign-in">
+    <form class="formulario" action="/aggproducto" method="post">
+        <h2 class="create-account">Crear articulo</h2>
+        <div class="iconos">
+            <div class="border-icon">
+                <i class='bx bxl-instagram'></i>
+            </div>
+            <div class="border-icon">
+                <i class='bx bxl-linkedin' ></i>
+            </div>
+            <div class="border-icon">
+                <i class='bx bxl-facebook-circle' ></i>
+            </div>
+        </div>
+        <input class="input" name="nombre" type="text" placeholder="Nombre">
+        <input class="input" name="precio" type="number" placeholder="Precio">
+        <input class="input" name="imagen" type="text" placeholder="url de imagen">
+        <select name="estado" class="input">
+            <option value="Activo" class="gego">Activo</option>
+            <option value="Inactivo" class="gego">inactivo</option>
+         </select>
+        <select name="tipo" class="input">
+            <option value="Electrodomesticos" class="gego">Electrodomesticos</option>
+            <option value="Joyeria" class="gego">Joyeria</option>
+            <option value="Propiedades" class="gego">Propiedades</option>
+            <option value="Vehiculos"  selected="selected" class="gego">Vehiculos</option>
+         </select>
+      
+        <button class="button">CREAR</button> 
+    </form>
+    <div class="welcome-back">
+        <div class="message">
+            <h2>Gracias por confiar en nosotros</h2>
+           
+            <a href="/cata"><button class="sign-in-btn">volver al catalogo</button></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

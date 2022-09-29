@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eletrodomesticos</title>
+    <link rel="stylesheet" href="./css/lio.css">
+</head>
+<body>
+   
+        <header>
+        
+            <div class="contenedor">
+               
+                  
+               
+            <h2 >CATALOGO</h2>
+           
+            <nav>
+                <ul>
+                <a href="cata"class="activo"><i class="fa-solid fa-child-reaching"></i>Todos</a>
+                <a href="propiedades"><i class="fa-solid fa-house"></i>Propiedades</a>
+                <a href="vehiculos"><i class="fa-solid fa-car"></i>Vehiculos</a>
+                <a href="electrodomesticos"><i class="fa-solid fa-tv"></i>Eletrodomesticos</a>
+                <a href="joyeria"><i class="fa-solid fa-bahai"></i>Joyeria</a>
+            </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+      <% tt.forEach((producto)=> { %>
+        <div class="card">
+            <figure>
+                <img src="<%= producto.imagen %>">
+            </figure>
+            <div class="contenido">
+                <br><h3><%= producto.nombre %></h3>
+                <span class="price">$<%= producto.precio %>COP.</span> <br>
+                <span class="price"><%= producto.estado %></span> <br>
+                <span class="price"><%= producto.fecha %></span> <br>
+                <form action="/comprar/<%= producto.codigo_referencia %>" method="get">
+    
+    
+               <br> <button type="submit" class="boton">SUBASTAR</button>       
+            </div>
+        </div>
+        <% }) %>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </section>
+</body>
+</html>

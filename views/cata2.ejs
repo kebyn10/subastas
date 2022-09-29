@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo</title>
+    <link rel="stylesheet" href="css/lio.css">
+    <script src="https://kit.fontawesome.com/160be7540d.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bx-menu'></i>
+      <span class="logo_name"><a href="/" >Subastar.lo</a> </span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <% if (conectado==false) { %> <a href="/login">
+          <i class='bx bx-grid-alt'></i>
+          <span class="link_name">Iniciar sesión</span>
+          <% } %>
+
+          <% if (conectado==true) { %> <a href="/minfo">
+            <i class='bx bx-grid-alt'></i> <span class="link_name"> <%= nombre %> </span> </a><% } %>
+          
+            <ul class="sub-menu blank">
+            <% if (conectado==false) { %> <li><a class="link_name" href="/login">Iniciar sesión</a></li><% } %>
+            <% if (conectado==true) { %> <li><a class="link_name" href="/minfo"> <%= nombre %> </a></li><% } %>
+          </ul>
+      </li>
+      <% if (conectado==true) { %>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-collection'></i>
+            <span class="link_name">Perfil</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Perfil</a></li>
+          <li><a href="/verificar">Cambiar contraseña</a></li>
+          <li><a href="/actualizar">Actualizar mi info</a></li>
+          <li><a href="/logout">Cerrar sesión</a></li>
+        </ul>
+      </li>
+      <% } %>
+      <% if (conectado==false) { %>
+      <li>
+        <div class="iocn-link">
+          <a href="/cata">
+            <i class='bx bx-book-alt'></i>
+           <span class="link_name">Subastas</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name"href="/cata"> Subastas</a></li>
+          <li><a href="/login">Crear subasta</a></li>
+          <li><a href="/cata">ver subastas</a></li>
+        </ul>
+      </li>
+      <% } %>
+      <% if (conectado==true) { %>
+      <li>
+        <div class="iocn-link">
+          <a href="/cata">
+            <i class='bx bx-book-alt'></i>
+            <span class="link_name">Subastas</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="/cata">Subastas</a></li>
+          <li><a href="/crearsubasta">Crear subasta</a></li>
+          <li><a href="/actualizarproducto">Actualizar subastas</a></li>
+          <li><a href="/eliminarproducto">Eliminar subastas</a></li>
+          <li><a href="/cata2">Subastas en proceso</a></li>
+          <li><a href="/historial">Subastas finalizadas</a></li>
+        </ul>
+      </li>
+      <% } %>
+     
+     
+      <li>
+        <div class="profile-details">
+          <div class="profile-content">
+
+          </div>
+          <div class="name-job">
+            <div class="profile_name">joder amo a dios</div>
+            <div class="job">SENA</div>
+          </div>
+          <a href="/"> <i class='bx bx-log-out'></i> </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <section class="home-section">
+    <header>
+    
+        <div class="contenedor">
+           
+              
+           
+        <h2 >CATALOGO</h2>
+       
+        <nav>
+            <ul>
+            <a href="#"class="activo"><i class="fa-solid fa-child-reaching"></i>Todos</a>
+            <a href="propiedades"><i class="fa-solid fa-house"></i>Propiedades</a>
+            <a href="vehiculos"><i class="fa-solid fa-car"></i>Vehiculos</a>
+            <a href="electrodomesticos"><i class="fa-solid fa-tv"></i>Eletrodomesticos</a>
+            <a href="joyeria"><i class="fa-solid fa-bahai"></i>Joyeria</a>
+        </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+  <% tt.forEach((producto)=> { %>
+    <% if(producto.email==email){ %>
+      <% if(producto.estado=="Activo"){ %>
+    <div class="card">
+        <figure>
+            <img src="<%= producto.imagen %>">
+        </figure>
+        <div class="contenido">
+            <br><h3><%= producto.nombre %></h3>
+            <span class="price">$<%= producto.precio %>COP.</span> <br>
+            <span class="price"><%= producto.estado %></span> <br>
+            <span class="price"><%= producto.fecha %></span> <br>
+            <form action="/comprarp/<%= producto.codigo_referencia %>" method="get">
+
+            
+            <br> <button type="submit" class="boton">SUBASTAR</button> </form>
+        </div>
+    </div>
+    <% }}}) %>
+    
+</div>
+
+
+
+
+
+
+
+
+
+</section>
+  <script>
+  let arrow = document.querySelectorAll(".arrow");
+  for (var i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener("click", (e)=>{
+   let arrowParent = e.target.parentElement.parentElement;
+   arrowParent.classList.toggle("showMenu");
+    });
+  }
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".bx-menu");
+  console.log(sidebarBtn);
+  sidebarBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("close");
+  });
+  </script>
+  </body>
+</html>

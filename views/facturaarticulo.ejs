@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="/css/factura.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  
+  <div class="container">
+   
+    <div class="box one">
+      <div class="details">
+        <% data.forEach((producto)=> { %>
+        <div class="topic"> <%= producto.nombre_articulo %> </div>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+          <div class="price-box">
+            <div class="price">VEDIDO:$<%= producto.totalf%> COP </div>
+            <div class="price">COD: <%= producto.nro_compra %> </div>
+            <div><h3>VENDIDO A: <%= producto.nombre_cliente %> </h3></div><br>
+            <div><h3> <%= producto.email_cliente %> </h3></div>
+          </div>
+      </div>
+     
+       
+      
+
+    
+    <div class="button2">
+    <a href="/historial"><button>cancelar</button></a>
+  </div>
+
+    </div>
+    <div class="box two">
+      <div class="image-box">
+        <div class="image">
+          <img src=" <%= producto.imagen %>" alt="" class="factura_img">
+        </div>
+        <div class="info">
+          <div class="brand"> VENDIDO</div>
+          <div class="shipping"> <%= producto.cod_p %></div>
+          
+      </div>
+    </div>
+    <% }) %> 
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/styleinicio.css">
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bx-menu'></i>
+      <span class="logo_name"><a href="/" >Subastar.lo</a> </span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <% if (conectado==false) { %> <a href="/login">
+          <i class='bx bx-grid-alt'></i>
+          <span class="link_name">Iniciar sesión</span>
+          <% } %>
+
+          <% if (conectado==true) { %> <a href="/minfo">
+            <i class='bx bx-grid-alt'></i> <span class="link_name"> <%= nombre %> </span> </a><% } %>
+          
+            <ul class="sub-menu blank">
+            <% if (conectado==false) { %> <li><a class="link_name" href="/login">Iniciar sesión</a></li><% } %>
+            <% if (conectado==true) { %> <li><a class="link_name" href="/minfo"> <%= nombre %> </a></li><% } %>
+          </ul>
+      </li>
+      <% if (conectado==true) { %>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-collection'></i>
+            <span class="link_name">Perfil</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Perfil</a></li>
+          <li><a href="/verificar">Cambiar contraseña</a></li>
+          <li><a href="/actualizar">Actualizar mi info</a></li>
+          <li><a href="/logout">Cerrar sesión</a></li>
+        </ul>
+      </li>
+      <% } %>
+      <% if (conectado==false) { %>
+      <li>
+        <div class="iocn-link">
+          <a href="/cata">
+            <i class='bx bx-book-alt'></i>
+           <span class="link_name">Subastas</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name"href="/cata"> Subastas</a></li>
+          <li><a href="/login">Crear subasta</a></li>
+          <li><a href="/cata">ver subastas</a></li>
+        </ul>
+      </li>
+      <% } %>
+      <% if (conectado==true) { %>
+      <li>
+        <div class="iocn-link">
+          <a href="/cata">
+            <i class='bx bx-book-alt'></i>
+            <span class="link_name">Subastas</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="/cata">Subastas</a></li>
+          <li><a href="/crearsubasta">Crear subasta</a></li>
+          <li><a href="/actualizarproducto">Actualizar subastas</a></li>
+          <li><a href="/eliminarproducto">Eliminar subastas</a></li>
+          <li><a href="/cata2">Subastas en proceso</a></li>
+          <li><a href="/historial">Subastas finalizadas</a></li>
+        </ul>
+      </li>
+      <% } %>
+     
+     
+      <li>
+        <div class="profile-details">
+          <div class="profile-content">
+
+          </div>
+          <div class="name-job">
+            <div class="profile_name">joder amo a dios</div>
+            <div class="job">SENA</div>
+          </div>
+          <a href="/"> <i class='bx bx-log-out'></i> </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+
+      <span class="text">Subastar.lo</span>
+    </div>
+
+
+
+    <main class="inicio">
+      <section class="principal">
+        <div>
+          <h1>Si quieres vender aqui lo vas hacer</h1>
+          <h1>En subastar.lo<span> sabias que...</span></h1>
+          <p>Una manera de ganar dinero de forma digital a través <br> del internet es vender productos en sitios de subastas.<br> Las plataformas web que reúnen a compradores<br> y vendedores  que comercializan diversa cantidad de productos, <br> en donde  las ventas  se llevan a cabo por medio del método  de subasta o a través  de compras  inmediatas.
+         </p>
+        </div>
+        <div class="container-slider">
+          <div class="slider" id="slider">
+            <div class="slider__section"><img
+                src="https://res.cloudinary.com/dwczm63h6/image/upload/v1659704060/subastas/pexels-brandon-175568_gggilc.jpg"
+                alt="" class="slider__img"></div>
+            <div class="slider__section"><img
+                src="https://res.cloudinary.com/dwczm63h6/image/upload/v1660744766/subastas/16560388173300_e2z7cn.jpg"
+                alt="" class="slider__img"></div>
+            <div class="slider__section"><img
+                src="https://res.cloudinary.com/dwczm63h6/image/upload/v1660744574/subastas/BLOG-COCHE-NO-LINEA_vxfxz2.jpg"
+                alt="" class="slider__img"></div>
+            <div class="slider__section"><img
+                src="https://res.cloudinary.com/dwczm63h6/image/upload/v1660744314/M%C3%A1s-de-dos-millones-de-euros-en-una-subasta-de-objetos-de-Hawking_xes9pz.jpg"
+                alt="" class="slider__img"></div>
+          </div>
+          <div class="slider__btn slider__btn--right" id="btn-right">&#62;</div>
+          <div class="slider__btn slider__btn--left" id="btn-left">&#60;</div>
+        </div>
+      </section>
+
+      <section class="secundario">
+        <div class="caja1">
+          <h1>SOBRE NOSOTROS</h1>
+          <p>
+            En nuestra empresa nos especializamos en la comercialización de sus bienes y activos por medio de subastas al alza con precio reservado donde se busca no vender por menos del precio que usted como cliente busca obtener, donde garantizamos rentabilidad, transparencia tanto al cliente vendedor como al cliente comprador. Nuestro mayor compromiso, buscar y optimizar la recuperación de capital de nuestros clientes de manera rápida, eficiente y segura, siempre desde un lugar de origen donde nuestros potenciales compradores podrán verificar la existencia y el estado de los objetos a la vente, así como las condiciones actuales.
+          </p>
+        
+        </div>
+        <div class="caja2">
+
+        </div>
+      </section>
+      <div class="slide-container swiper">
+        <div class="slide-content">
+            <div class="card-wrapper swiper-wrapper">
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+
+                        <div class="card-image">
+                            <img src="https://res.cloudinary.com/dwczm63h6/image/upload/v1663898072/subastas/volley_rzl2yy.jpg" alt="" class="card-img">
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <h2 class="name">Balon</h2>
+                        <p class="description">Balon volley Mr wilson cuero compuesto Nro 01</p>
+
+                        <button class="button">Ver</button>
+                    </div>
+                </div>
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+
+                        <div class="card-image">
+                            <img src="https://res.cloudinary.com/dwczm63h6/image/upload/v1663898366/subastas/iphone_wcwvkk.jpg" alt="" class="card-img">
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <h2 class="name">Iphone 14</h2>
+                        <p class="description">Ultimo iphone con deteccion de choques, camara 48 MP</p>
+
+                        <button class="button">Ver</button>
+                    </div>
+                </div>
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+
+                        <div class="card-image">
+                            <img src="https://res.cloudinary.com/dwczm63h6/image/upload/v1663897766/subastas/lakers_w84hoy.jpg" alt="" class="card-img">
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <h2 class="name">Balon</h2>
+                        <p class="description">Balon de basket wilson NBA Tydye lakers Nro07
+                        </p>
+
+                        <button class="button">Ver</button>
+                    </div>
+                </div>
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+
+                        <div class="card-image">
+                            <img src="https://res.cloudinary.com/dwczm63h6/image/upload/v1663897168/subastas/brazuca_z20plq.jpg" alt="" class="card-img">
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <h2 class="name">Balon</h2>
+                        <p class="description">Balon brazuca mundial 2014,utilizado en la final
+                        </p>
+
+                        <button class="button">Ver</button>
+                    </div>
+                </div>
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+
+                        <div class="card-image">
+                            <img src="https://res.cloudinary.com/dwczm63h6/image/upload/v1663898715/subastas/rolex_mujer_zzfnsu.jpg" alt="" class="card-img">
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <h2 class="name">Reloj Rolex</h2>
+                        <p class="description">Reloj para mujer Datejust Everose dorado y diamantes</p>
+
+                        <button class="button">ver</button>
+                    </div>
+                </div>
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+
+                        <div class="card-image">
+                            <img src="https://res.cloudinary.com/dwczm63h6/image/upload/v1663896423/subastas/proteina_hradzh.jpg" alt="" class="card-img">
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <h2 class="name">Proteina</h2>
+                        <p class="description">Proteina limpia en polvo 100% whey gold standard
+                        </p>
+
+                        <button class="button">Ver</button>
+                    </div>
+                </div>
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+
+                        <div class="card-image">
+                            <img src="https://res.cloudinary.com/dwczm63h6/image/upload/v1663898949/subastas/rolex_hombre_yc4vib.jpg" alt="" class="card-img">
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <h2 class="name">Reloj Rolex</h2>
+                        <p class="description">Reloj vintage rolex datejust bañado en oro</p>
+
+                        <button class="button">Ver</button>
+                    </div>
+                </div>
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+
+                        <div class="card-image">
+                            <img src="https://res.cloudinary.com/dwczm63h6/image/upload/v1663899845/subastas/lamborghini_ztuirs.jpg" alt="" class="card-img">
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <h2 class="name">Lamborghini huracan</h2>
+                        <p class="description"> es el acuerdo ideal entre tecnología y diseño.  </p>
+
+                        <button class="button">Ver</button>
+                    </div>
+                </div>
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+
+                        <div class="card-image">
+                            <img src="https://res.cloudinary.com/dwczm63h6/image/upload/v1663899353/subastas/samsung_s22_waittk.jpg" alt="" class="card-img">
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <h2 class="name">Samsung s22</h2>
+                        <p class="description">Nuevo samsung galaxy s22 la mejor experiencia en camara</p>
+
+                        <button class="button">Ver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-button-next swiper-navBtn"></div>
+        <div class="swiper-button-prev swiper-navBtn"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+    
+    </main>
+
+
+
+
+    <div class="dividir">
+      <div class="targeta2">
+    <div class="wrapper">
+      <div class="card front-face">
+       <h2 class="misi">MISIÓN</h2>
+      </div>
+      <div class="card back-face">
+       
+        <div class="info">
+          <div class="title">MISIÓN</div>
+          <p> Nuestra misión como empresa es brindarles a nuestros clientes la mejor atención al momento de subastar y poder realizar una limpia y justa subasta para cada uno de nuestros clientes.
+            Bajo los principios de honestidad, calidad y responsabilidad social ser la empresa mas influyente en el ámbito regional en la realización de subastas electrónicas 
+            </p>
+        </div>
+      
+      </div>
+    </div>
+   </div>
+   
+    <div class="wrapper">
+      <div class="card front-face">
+         <h2 class="misi">VISIÓN</h2>
+      </div>
+      <div class="card back-face">
+        
+        <div class="info">
+         <div class="title">VISIÓN</div>
+          <p> Nuestra visión como empresa es lograr que nuestra pagina se eleve de forma expansiva y se posicione entre las mejores paginas de subastas a nivel regional.
+            Siempre conscientes de nuestras responsabilidades de formar que se satisfagan los deseos y necesidades de nuestros clientes 
+            </p>
+        </div>
+      
+      </div>
+    </div>
+ 
+
+   </div>
+    <footer class="pie-pagina">
+      <div class="grupo-1">
+        <div class="box">
+          <figure>
+            <a href="#">
+              <img src="imgs/logotipo-sleedw.svg" alt="">
+            </a>
+          </figure>
+        </div>
+        <div class="box">
+          <h2>NUESTRA INFORMACION:</h2>
+          <p>@subastas.io</p>
+          <p>subastas.ios</p>
+          <p>3107564321</p>
+          <p>subastas_io@gmail.com</p>
+
+        </div>
+        <div class="box">
+          <h2>SIGUENOS</h2>
+          <div class="red-social">
+            <div class="iconos">
+              <div class="border-icon">
+                  <i class='bx bxl-instagram'></i>
+              </div>
+              <div class="border-icon">
+                  <i class='bx bxl-linkedin' ></i>
+              </div>
+              <div class="border-icon">
+                  <i class='bx bxl-facebook-circle' ></i>
+              </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="grupo-2">
+        <small>&copy; 2022 <b>SENA</b> </small>
+      </div>
+
+
+
+
+    </footer>
+
+
+
+    <script>
+      const slider = document.querySelector("#slider");
+      let sliderSection = document.querySelectorAll(".slider__section");
+      let sliderSectionLast = sliderSection[sliderSection.length - 1];
+      const btnLeft = document.querySelector("#btn-left");
+      const btnRight = document.querySelector("#btn-right");
+      slider.insertAdjacentElement('afterbegin', sliderSectionLast);
+
+      function Next() {
+        let sliderSectionFirst = document.querySelectorAll(".slider__section")[0];
+        slider.style.marginLeft = "-200%";
+        slider.style.transition = "all 0.5s";
+        setTimeout(function () {
+          slider.style.transition = "none";
+          slider.insertAdjacentElement('beforeend', sliderSectionFirst);
+          slider.style.marginLeft = "-100%";
+        }, 500);
+      }
+
+      function prev() {
+        let sliderSection = document.querySelectorAll(".slider__section");
+        let sliderSectionLast = sliderSection[sliderSection.length - 1];
+        slider.style.marginLeft = "0";
+        slider.style.transition = "all 0.5s";
+        setTimeout(function () {
+          slider.style.transition = "none";
+          slider.insertAdjacentElement('afterbegin', sliderSectionLast);
+          slider.style.marginLeft = "-100%";
+
+        }, 500);
+      }
+      btnRight.addEventListener('click', function () {
+        Next();
+      });
+      btnLeft.addEventListener('click', function () {
+        prev();
+      });
+      setInterval(function () {
+        Next();
+      }, 3000);
+    </script>
+
+
+
+
+  </section>
+  <script>
+    let arrow = document.querySelectorAll(".arrow");
+    for (var i = 0; i < arrow.length; i++) {
+      arrow[i].addEventListener("click", (e) => {
+        let arrowParent = e.target.parentElement.parentElement;
+        arrowParent.classList.toggle("showMenu");
+      });
+    }
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".bx-menu");
+    console.log(sidebarBtn);
+    sidebarBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("close");
+    });
+  </script>
+
+</body>
+<script src="javascript/swiper-bundle.min.js"></script>
+<script src="javascript/script.js"></script>
+
+
+</html>

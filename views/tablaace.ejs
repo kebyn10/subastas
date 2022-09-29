@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dando estilo a tablas</title>
+
+	<link rel="stylesheet" href="/css/tabla.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div id="main-container">
+		
+		<table>
+			<thead>	
+				<tr>
+						<th>Nombre</th><th>Fecha</th><th>Cantidad ofrecida</th><th>aceptacion</th>
+				</tr>
+			</thead>
+		
+			<% gg.forEach((producto)=> { %>
+			<tr>
+				<th> <%= producto.nombre %> </th><th> <%= producto.fecha %> </th><th>$ <%= producto.cantidad_ofrecida %>  </th><th><form method="get" action="/finalizar/<%= producto.codigo_referencia %>/<%= producto.usuario %>/<%= producto.numero_puja %>"><button>aceptar</button></form></th>
+			
+			</tr>
+			<% }) %>
+		</table>
+		
+		
+		
+	</div>
+	
+</body>
+</html>
+
+
+
+

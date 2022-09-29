@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">  
+    <link rel="stylesheet" href="css/estiloUsuario.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bx-menu' ></i>
+      <span class="logo_name"><a href="/" >Subastar.lo</a></span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="/minfo">
+          <i class='bx bx-grid-alt'></i>
+          <% data.forEach((info)=> { %>
+          <span class="link_name"><%= info.name %></span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/minfo"><%= info.name %></a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-collection' ></i>
+            <span class="link_name">Perfil</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Perfil</a></li>
+          <li><a href="/verificar">Cambiar contraseña</a></li>
+          <li><a href="/actualizar">Actualizar mi info</a></li>
+          <li><a href="/logout">Cerrar sesión</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="/cata">
+            <i class='bx bx-book-alt' ></i>
+            <span class="link_name">Subastas</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="/cata">Subastas</a></li>
+          <li><a href="/crearsubasta">Crear subasta</a></li>
+          <li><a href="/actualizarproducto">Actualizar subastas</a></li>
+          <li><a href="/eliminarproducto">Eliminar subastas</a></li>
+          <li><a href="/cata2">Subastas en proceso</a></li>
+          <li><a href="/historial">Subastas finalizadas</a></li>
+        </ul>
+      </li>
+    
+     
+      
+       
+    
+     
+      </li>
+      <li>
+    <div class="profile-details">
+      <div class="profile-content">
+
+      </div>
+      <div class="name-job">
+        <div class="profile_name">joder amo a dios</div>
+        <div class="job">SENA</div>
+      </div>
+      <i class='bx bx-log-out' ></i>
+    </div>
+  </li>
+</ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+      <header>
+        <h1 class="titulo1">INFORMACION DE USUARIO</h1>
+    </header>
+    <div class="info-usuario">
+        
+        <h2 class="titulo2">Correo Electronico</h2>
+        <center><p class="parrafo"><%= info.email %></p></center>  
+        <h2 class="titulo2">Nombre</h2>
+        <center><p class="parrafo"><%= info.name %></p></center>
+        <h2 class="titulo2">Número</h2>
+        <center><p class="parrafo"><%= info.number %></p></center>
+        <h2 class="titulo2">Edad</h2>
+        <center><p class="parrafo"><%= info.age %></p></center>
+    </div>
+    <% }) %>
+    
+      <span class="text"></span>
+    </div>
+
+  </section>
+
+
+  <script>
+  let arrow = document.querySelectorAll(".arrow");
+  for (var i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener("click", (e)=>{
+   let arrowParent = e.target.parentElement.parentElement;
+   arrowParent.classList.toggle("showMenu");
+    });
+  }
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".bx-menu");
+  console.log(sidebarBtn);
+  sidebarBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("close");
+  });
+  </script>
+</body>
+<script src="../swiper-bundle.min.js"></script>
+<script src="../script.js"></script>
+</html>

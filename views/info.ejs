@@ -1,0 +1,31 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styleusuario.css">
+    <title>informacion de usuario</title>
+</head>
+
+<body>        
+    
+    <button>volver</button>
+    <header>
+        <h1>INFORMACION DE USUARIO</h1>
+    </header>
+    <div>
+        <% data.forEach((info)=> { %>
+        <h2>Correo Electronico</h2>
+       <center><p><%= info.email %></p></center>  
+        <h2>Nombre</h2>
+        <center><p><%= info.name %></p></center>
+        <h2>Número</h2>
+        <center><p><%= info.number %></p></center>
+        <h2>Edad</h2>
+        <center><p><%= info.age %></p></center>
+    </div>
+    <% }) %>
+</body>
+
+</html>
